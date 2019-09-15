@@ -1,0 +1,10 @@
+name: ThinkDSP
+
+dependencies:
+  - python=3.5
+  - jupyter
+  - numpy
+  - matplotlib
+  - pandas
+  - scipy
+  - wave
