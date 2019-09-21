@@ -1,9 +1,5 @@
 import sound_class
 import sound_home
-import wave
-import numpy as np
-import scipy.io.wavfile as wf #Code on class
-import matplotlib.pyplot as plt
 
 #FILES
 path1 = "./res/484484__nowism__techno-x-otherkick.wav"
