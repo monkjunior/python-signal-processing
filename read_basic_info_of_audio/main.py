@@ -12,12 +12,8 @@ path5 = "./res/khoosoothunhus.wav"
 #sound_home.soundInfo(path1)
 #sound_home.soundInfo(path2)
 #sound_home.soundInfo(path3)
-#sound_home.readSound(path3)
+#sound_home.readSound(path4)
 
 #Code on class
 
-sound_class.plotSound2(path5)
-
-import numpy as np
-a = np.array([-1, 2, 3, -4, -5, 6])
-print(np.nonzero(np.diff(a > 0)))
+sound_class.hamTuTuongQuan(path4)

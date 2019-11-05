@@ -1,4 +1,4 @@
-name: ThinkDSP
+name: read_basic_info_of_audio
 
 dependencies:
   - python=3.5
