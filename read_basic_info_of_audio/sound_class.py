@@ -6,8 +6,6 @@ import matplotlib.pyplot as plt
 from scipy.fftpack import fft, ifft  
 #https://docs.scipy.org/doc/scipy/reference/tutorial/fftpack.html
 
-#from scikits.talkbox.linpred.levinson_lpc import lpc
-#from audiolazy.lazy_lpc import lpc
 
 def magnitudeSeries(dataSeries, timeSeries):
     #Raw data

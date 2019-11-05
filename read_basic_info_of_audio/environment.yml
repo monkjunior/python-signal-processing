@@ -7,4 +7,3 @@ dependencies:
   - matplotlib
   - pandas
   - scipy
-  - wave
