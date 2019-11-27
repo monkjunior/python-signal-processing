@@ -18,19 +18,31 @@ xn   = x_max*np.sin(2*np.pi*time*10/100)
 
 # Max value of signal xn
 V = xn.max()
-muy = 255
-yn = (V*np.log(1+(250*(np.abs(xn)/V)))/np.log(1+muy))*np.sign(xn)
+A = 87.56
 
-# xdn - decompress from yn
+yn = np.zeros(len(xn))
+i = 0
+
+for i in range(len(xn)):
+    if np.abs(xn[i]) <= V/A:
+        yn[i] = ((A*np.abs(xn[i]))/(1+np.log(A)))*np.sign(xn[i])
+    if np.abs(xn[i]) > V/A and np.abs(xn[i]) <= V:
+        yn[i] = (V*(1+np.log(A*np.abs(xn[i])/(V)))/(1 + np.log(A)))*np.sign(xn[i])
+
+# xdn
 xdn = np.zeros(len(yn))
 i = 0
+
 for i in range(len(yn)):
-    if yn[i] > 0:
-        xdn[i] = (np.power((1+muy),(yn[i]/V))-1)*V/muy
-    elif yn[i] < 0:
-        xdn[i] = (1-np.power((1+muy),(-yn[i]/V)))*V/muy
+    if yn[i] < V/(1 + np.log(A)) and yn[i] > -V/(1 + np.log(A)):
+        xdn[i]=yn[i]*(1 + np.log(A))/A
     else:
-        xdn[i] = 0
+        if yn[i] < 0:
+            xdn[i] = -(np.power(np.e,-1.0+(-yn[i]/V)*(1+np.log(A))))*V/A
+        elif yn[i] > 0:
+            xdn[i] = (np.power(np.e,-1.0+(yn[i]/V)*(1+np.log(A))))*V/A
+        else:
+            xdn[i] = 0
     print(f'{i}\t{xn[i]}\t{yn[i]}\t{xdn[i]}\t{xdn[i]-xn[i]}')
 
 #DRAW XN
